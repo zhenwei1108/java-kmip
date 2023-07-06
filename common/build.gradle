@@ -1,7 +1,12 @@
 plugins {
     id 'java'
 }
-
+allprojects {
+    repositories {
+        maven { url "file:${System.getenv("user.home")}/maven-repo"}
+        mavenLocal()
+    }
+}
 group 'com.github.zhenwei.kmip.common'
 version '1.0-SNAPSHOT'
 
