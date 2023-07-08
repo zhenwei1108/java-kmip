@@ -1,4 +1,4 @@
-package com.github.zhenwei.kmip.common.enums;
+package com.github.zhenwei.kmip.enums;
 
 import java.util.stream.Stream;
 
