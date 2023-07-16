@@ -1,18 +1,17 @@
-package com.github.zhenwei.kmip.enums;
+package com.github.wegoo.kmip.enums;
 
-import java.util.EnumSet;
-import java.util.List;
-import java.util.stream.Collectors;
+import com.github.wegoo.bytes.tools.BytesTools;
+import com.github.wegoo.kmip.exception.KmipErrorResult;
+import com.github.wegoo.kmip.exception.KmipException;
 import java.util.stream.Stream;
 
 /**
- * @author: zhangzhenwei
- * @description: TagEnum
- *  项标签
+ * @author: wegoo
+ * @description: TagEnum 项标签
  * @date: 2022/9/26  23:12
  * @since: 1.0
  */
-public enum TagEnum {
+public enum TagEnum implements IEnum{
   ActivationDate(0x420001),//激活日期
   ApplicationData(0x420002),//应用程序数据
   ApplicationNamespace(0x420003),//应用程序命名空间
@@ -330,30 +329,34 @@ public enum TagEnum {
 
 
   /**
-   * @description: 获取所有Tag的在用前缀
-   * 5400 为自定义
+   * @description: 获取所有Tag的在用前缀 5400 为自定义
+   * 0x5400 为扩展
    * @param: []
    * @return: java.lang.String[]
-   * @author zhangzhenwei
+   * @author wegoo
    * @date: 2021/2/3 10:22 下午
    */
-  public static String[] getAllPrefix() {
-    String[] allPrefix = {"4200", "4201","5400"};
-    return allPrefix;
-
+  public static int[] getAllPrefix() {
+    return new int[]{0x4200, 0x4201, 0x5400};
   }
 
-  public static TagEnum matchTag(int value) {
-    List<TagEnum> list = Stream.of(values()).filter(tag -> tag.getValue() == value)
-        .collect(Collectors.toList());
-    return list.isEmpty() ? null : list.get(0);
+  public static TagEnum matchTag(int value) throws KmipException {
+    return Stream.of(values()).parallel().filter(tag -> tag.getValue() == value)
+        .findFirst().orElseThrow(()->new KmipException(KmipErrorResult.TAG_NOT_SUPPORT, "tag 类型(int):"+value));
   }
 
-  public static TagEnum matchTag(String hexValue) {
-    return Stream.of(values())
-        .filter(tag -> tag.getHexValue().equalsIgnoreCase(hexValue)).findFirst().orElse(null);
+
+  public static TagEnum matchTag(byte[] tag) throws KmipException {
+    return matchTag(BytesTools.bytesToInt(tag));
   }
 
-  public final static EnumSet<TagEnum> Encrypt = EnumSet
-      .of(UniqueIdentifier, BlockCipherMode, PaddingMethod,CryptographicAlgorithm,KeyVersion);
+  public static TagEnum matchTag(String hexValue) throws KmipException {
+    return matchTag(BytesTools.hexToBytes(hexValue));
+  }
+
+  @Override
+  public byte[] getEncode() {
+    return BytesTools.hexToBytes(getHexValue());
+  }
+
 }

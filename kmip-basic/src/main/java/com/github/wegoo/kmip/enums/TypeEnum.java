@@ -1,13 +1,13 @@
-package com.github.zhenwei.kmip.enums;
+package com.github.wegoo.kmip.enums;
 
 import java.util.stream.Stream;
 
 /**
- * @author zhangzhenwei
+ * @author wegoo
  * @description: 项类型
  * @date 2022/9/26  23:12
  */
-public enum TypeEnum {
+public enum TypeEnum implements IEnum{
   //结构
   KmipStructure(0x01, 0),
   //整型
@@ -31,26 +31,24 @@ public enum TypeEnum {
   ;
 
 
-  private int type;
+  private byte type;
 
   //允许长度
-  private int allowLen;
+  private int maxLength;
 
-  public int getAllowLen() {
-    return allowLen;
-  }
 
-  TypeEnum(int type, int allowLen) {
-    this.type = type;
-    this.allowLen = allowLen;
+  TypeEnum(int type, int maxLength) {
+    this.type = (byte) type;
+    this.maxLength = maxLength;
   }
 
   public int getType() {
     return type;
   }
 
-  public String getHexValue() {
-    return Integer.toHexString(type).toUpperCase();
+
+  public int getMaxLength() {
+    return maxLength;
   }
 
   public static TypeEnum matchType(int type) {
@@ -60,4 +58,8 @@ public enum TypeEnum {
   }
 
 
+  @Override
+  public byte[] getEncode() {
+    return new byte[]{type};
+  }
 }
