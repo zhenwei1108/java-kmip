@@ -1,38 +1,38 @@
-package com.github.zhenwei.kmip.objects;
+package com.github.wegoo.kmip.objects;
 
-import com.github.zhenwei.kmip.enums.TagEnum;
-import com.github.zhenwei.kmip.enums.TypeEnum;
+import com.github.wegoo.kmip.enums.TagEnum;
+import com.github.wegoo.kmip.enums.TypeEnum;
 
 /**
- * @author: zhangzhenwei
- * @description: com.github.zhenwei.kmip.objects 顶级基类
+ * @author: wegoo
+ * @description: com.github.wegoo.kmip.objects 顶级基类
  * @date: 2023/7/9  11:18
  * @since: 1.0.0
  */
 public interface InterfaceKmipObject<T> {
 
   /**
-   * @author zhangzhenwei
+   * @author wegoo
    * @description getTag 获取标签
    * @param []
-   * @return com.github.zhenwei.kmip.enums.TagEnum
+   * @return com.github.wegoo.kmip.enums.TagEnum
    * @date 2023/7/14  16:20
    * @since: 1.0.0
    */
   TagEnum getTag();
 
   /**
-   * @author zhangzhenwei
+   * @author wegoo
    * @description getType 获取标识
    * @param []
-   * @return com.github.zhenwei.kmip.enums.TypeEnum
+   * @return com.github.wegoo.kmip.enums.TypeEnum
    * @date 2023/7/14  16:20
    * @since: 1.0.0
    */
   TypeEnum getType();
 
   /**
-   * @author zhangzhenwei
+   * @author wegoo
    * @description getLength 获取值的 字节长度
    * @param []
    * @return int
@@ -42,7 +42,7 @@ public interface InterfaceKmipObject<T> {
   int getLength();
 
   /**
-   * @author zhangzhenwei
+   * @author wegoo
    * @description getValue 获取值
    * @param []
    * @return T
