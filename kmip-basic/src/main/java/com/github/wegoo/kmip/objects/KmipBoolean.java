@@ -10,8 +10,6 @@ import com.github.wegoo.kmip.enums.TypeEnum;
  */
 public class KmipBoolean extends AbstractKmipObject<Boolean>{
 
-  boolean value;
-
   @Override
   byte[] getBytesValue() {
     return new byte[]{(byte) (value ? 0x01 : 0x00)};

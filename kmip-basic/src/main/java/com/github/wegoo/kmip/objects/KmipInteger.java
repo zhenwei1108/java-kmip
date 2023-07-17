@@ -14,8 +14,6 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class KmipInteger extends AbstractKmipObject<Integer> {
 
-  int value;
-
   @Override
   public TypeEnum getType() {
     return TypeEnum.KmipInteger;

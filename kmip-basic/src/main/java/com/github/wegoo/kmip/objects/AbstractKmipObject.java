@@ -13,6 +13,8 @@ public abstract class AbstractKmipObject<T> implements InterfaceKmipObject<T> {
 
   TagEnum tagEnum;
 
+  T value;
+
   /**
    * @author wegoo
    * @description getBytesValue 获取值(字节) 
@@ -26,7 +28,7 @@ public abstract class AbstractKmipObject<T> implements InterfaceKmipObject<T> {
   /**
    * @author wegoo
    * @description getEncode 获取具体编码，TTLV 
-   * @param []
+   * @param [] todo 或可能填充0凑8的整数倍
    * @return byte[]
    * @date 2023/7/14  16:43
    * @since: 1.0.0 
@@ -52,6 +54,11 @@ public abstract class AbstractKmipObject<T> implements InterfaceKmipObject<T> {
   @Override
   public int getLength() {
     return getBytesValue().length;
+  }
+
+  @Override
+  public T getValue() {
+    return value;
   }
 
 }

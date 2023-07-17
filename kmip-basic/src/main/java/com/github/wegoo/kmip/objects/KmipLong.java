@@ -12,8 +12,6 @@ import com.github.wegoo.kmip.enums.TypeEnum;
  */
 public class KmipLong extends AbstractKmipObject<Long>{
 
-  long value;
-
   @Override
   byte[] getBytesValue() {
     return BytesTools.longToBytes(value);
