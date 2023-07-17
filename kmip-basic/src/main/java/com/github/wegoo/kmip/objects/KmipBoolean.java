@@ -19,9 +19,4 @@ public class KmipBoolean extends AbstractKmipObject<Boolean>{
   public TypeEnum getType() {
     return TypeEnum.KmipBoolean;
   }
-
-  @Override
-  public Boolean getValue() {
-    return value;
-  }
 }

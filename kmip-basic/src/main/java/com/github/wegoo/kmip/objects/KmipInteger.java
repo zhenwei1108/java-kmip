@@ -19,10 +19,6 @@ public class KmipInteger extends AbstractKmipObject<Integer> {
     return TypeEnum.KmipInteger;
   }
 
-  @Override
-  public Integer getValue() {
-    return this.value;
-  }
 
   @Override
   byte[] getBytesValue() {

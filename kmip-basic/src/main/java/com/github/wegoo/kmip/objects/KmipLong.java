@@ -23,8 +23,4 @@ public class KmipLong extends AbstractKmipObject<Long>{
     return TypeEnum.KmipLong;
   }
 
-  @Override
-  public Long getValue() {
-    return value;
-  }
 }
