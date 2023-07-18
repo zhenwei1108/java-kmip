@@ -1,7 +1,6 @@
 package com.github.wegoo.kmip.objects;
 
 import com.github.wegoo.bytes.tools.BytesTools;
-import com.github.wegoo.kmip.enums.TagEnum;
 import com.github.wegoo.kmip.enums.TypeEnum;
 import lombok.AllArgsConstructor;
 
@@ -16,7 +15,7 @@ public class KmipInteger extends AbstractKmipObject<Integer> {
 
   @Override
   public TypeEnum getType() {
-    return TypeEnum.KmipInteger;
+    return TypeEnum.Integer;
   }
 
 

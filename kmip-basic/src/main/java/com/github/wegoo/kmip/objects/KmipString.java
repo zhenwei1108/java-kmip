@@ -19,7 +19,7 @@ public class KmipString extends AbstractKmipObject<String>{
 
   @Override
   public TypeEnum getType() {
-    return TypeEnum.KmipString;
+    return TypeEnum.String;
   }
 
 

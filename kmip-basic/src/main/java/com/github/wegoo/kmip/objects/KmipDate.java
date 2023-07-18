@@ -19,6 +19,6 @@ public class KmipDate extends AbstractKmipObject<Date>{
 
   @Override
   public TypeEnum getType() {
-    return TypeEnum.KmipDate;
+    return TypeEnum.Date;
   }
 }

@@ -1,7 +1,6 @@
 package com.github.wegoo.kmip.objects;
 
 import com.github.wegoo.bytes.tools.BytesTools;
-import com.github.wegoo.kmip.enums.TagEnum;
 import com.github.wegoo.kmip.enums.TypeEnum;
 
 /**
@@ -20,7 +19,7 @@ public class KmipLong extends AbstractKmipObject<Long>{
 
   @Override
   public TypeEnum getType() {
-    return TypeEnum.KmipLong;
+    return TypeEnum.Long;
   }
 
 }

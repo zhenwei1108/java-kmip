@@ -1,22 +1,23 @@
 package com.github.wegoo.kmip.objects;
 
+import com.github.wegoo.kmip.enums.IEnum;
 import com.github.wegoo.kmip.enums.TypeEnum;
 
 /**
  * @author: zhangzhenwei
- * @description: com.github.wegoo.kmip.objects 字节串
- * @date: 2023/7/18  08:48
+ * @description: 枚举
+ * @date: 2023/7/18  08:53
  * @since: 1.0.0
  */
-public class KmipByteString extends AbstractKmipObject<byte[]>{
+public class KmipEnum extends AbstractKmipObject<IEnum>{
 
   @Override
   byte[] getBytesValue() {
-    return getValue();
+    return value.getEncode();
   }
 
   @Override
   public TypeEnum getType() {
-    return TypeEnum.ByteString;
+    return TypeEnum.Enum;
   }
 }
