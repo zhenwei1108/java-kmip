@@ -9,25 +9,25 @@ import java.util.stream.Stream;
  */
 public enum TypeEnum implements IEnum{
   //结构
-  KmipStructure(0x01, 0),
+  Structure(0x01, 0),
   //整型
-  KmipInteger(0x02, 4),
+  Integer(0x02, 4),
   //长整型
-  KmipLong(0x03, 8),
+  Long(0x03, 8),
   //大数
-  KmipBigInteger(0x04, 0),
+  BigInteger(0x04, 0),
   //枚举
-  KmipEnum(0x05, 4),
+  Enum(0x05, 4),
   //布尔
-  KmipBoolean(0x06, 8),
+  Boolean(0x06, 8),
   //文本串
-  KmipString(0x07, 0),
+  String(0x07, 0),
   //字节串
-  KmipByteString(0x08, 0),
+  ByteString(0x08, 0),
   //日期
-  KmipDate(0x09, 8),
+  Date(0x09, 8),
   //间隔
-  KmipInterval(0x0A, 4),
+  Interval(0x0A, 4),
   ;
 
 
@@ -52,9 +52,7 @@ public enum TypeEnum implements IEnum{
   }
 
   public static TypeEnum matchType(int type) {
-    return Stream.of(values()).filter(tag -> tag.getType() == type).limit(1).findFirst()
-        .orElse(null);
-
+    return Stream.of(values()).filter(tag -> tag.getType() == type).findFirst().orElse(null);
   }
 
 
